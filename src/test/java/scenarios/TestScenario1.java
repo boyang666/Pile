@@ -1,6 +1,8 @@
 package scenarios;
 
-import com.polytechtours.di5.Pile.input.StubKbdInputPile;
+import java.util.Scanner;
+
+import com.polytechtours.di5.Pile.input.KbdInputPile;
 import com.polytechtours.di5.Pile.view.ViewBottomPile;
 import com.polytechtours.di5.Pile.view.ViewTopPile;
 
@@ -8,14 +10,15 @@ import junit.framework.TestCase;
 
 public class TestScenario1 extends TestCase {
 
-	StubKbdInputPile kbdinput;
+	KbdInputPile kbdinput;
 	ViewTopPile viewtop;
 	ViewBottomPile viewBottom;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		kbdinput = new StubKbdInputPile();
+		kbdinput = new KbdInputPile();
 		kbdinput.action = "push";
+		kbdinput.num = 10;
 		
 		viewtop = new ViewTopPile();
 		viewBottom = new ViewBottomPile();

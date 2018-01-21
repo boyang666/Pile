@@ -1,6 +1,6 @@
 package scenarios;
 
-import com.polytechtours.di5.Pile.input.StubViewInputPile;
+import com.polytechtours.di5.Pile.input.ViewInputPile;
 import com.polytechtours.di5.Pile.view.ViewBottomPile;
 import com.polytechtours.di5.Pile.view.ViewTopPile;
 
@@ -8,13 +8,13 @@ import junit.framework.TestCase;
 
 public class TestScenario6 extends TestCase {
 
-	StubViewInputPile viewInput;
+	ViewInputPile viewInput;
 	ViewBottomPile viewBottom;
 	ViewTopPile viewTop;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		viewInput = new StubViewInputPile();
+		viewInput = new ViewInputPile();
 		
 		viewBottom = new ViewBottomPile();
 		viewTop = new ViewTopPile();
@@ -22,6 +22,7 @@ public class TestScenario6 extends TestCase {
 		viewInput.pile.addObserver(viewTop);
 		
 		viewInput.action = "push";
+		viewInput.num = 10;
 		for(int i=0; i<6; i++) {
 			viewInput.actionCommande();
 		}
