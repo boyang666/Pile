@@ -31,14 +31,14 @@ public class TestScenario1 extends TestCase {
 	public void testMethod() {
 		for(int i=0; i<5; i++) {
 			kbdinput.actionCommande();
-			TestCase.assertEquals(i+1, kbdinput.pile.size);
+			TestCase.assertEquals(i+1, kbdinput.pile.getSizeList());
 			TestCase.assertEquals((i+1), viewBottom.countUpdate);
 			TestCase.assertEquals((i+1), viewtop.countUpdate);
 		}
 		
 		
 		kbdinput.actionCommande();
-		TestCase.assertEquals(6, kbdinput.pile.size);
+		TestCase.assertEquals(6, kbdinput.pile.getSizeList());
 		TestCase.assertEquals(5, viewBottom.countUpdate);
 		TestCase.assertEquals(6, viewtop.countUpdate);
 	}

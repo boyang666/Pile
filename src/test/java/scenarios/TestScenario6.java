@@ -34,7 +34,7 @@ public class TestScenario6 extends TestCase {
 	public void testMethod() {
 		viewInput.action = "clear";
 		viewInput.actionCommande();
-		TestCase.assertEquals(0, viewInput.pile.size);
+		TestCase.assertEquals(0, viewInput.pile.getSizeList());
 		TestCase.assertEquals(6, viewBottom.countUpdate);
 		TestCase.assertEquals(7, viewTop.countUpdate);
 	}

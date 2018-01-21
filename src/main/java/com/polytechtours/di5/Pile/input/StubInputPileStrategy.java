@@ -1,15 +1,15 @@
 package com.polytechtours.di5.Pile.input;
 
-import com.polytechtours.di5.Pile.model.StubPile;
+import com.polytechtours.di5.Pile.model.Pile;
 
 public abstract class StubInputPileStrategy {
 	
-	public StubPile pile;
+	public Pile pile;
 	
 	public String action;
 	
 	public StubInputPileStrategy() {
-		pile = new StubPile();
+		pile = new Pile();
 	}
 	
 	public abstract void actionCommande();

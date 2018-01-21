@@ -34,7 +34,7 @@ public class TestScenario5 extends TestCase {
 	public void testMethod() {
 		kbdInput.action = "clear";
 		kbdInput.actionCommande();
-		TestCase.assertEquals(0, kbdInput.pile.size);
+		TestCase.assertEquals(0, kbdInput.pile.getSizeList());
 		TestCase.assertEquals(6, viewBottom.countUpdate);
 		TestCase.assertEquals(7, viewTop.countUpdate);
 	}

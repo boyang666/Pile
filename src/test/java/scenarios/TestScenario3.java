@@ -34,13 +34,13 @@ public class TestScenario3 extends TestCase {
 	public void testMethod() {
 		kbdInput.action = "pop";
 		kbdInput.actionCommande();
-		TestCase.assertEquals(6, kbdInput.pile.size);
+		TestCase.assertEquals(6, kbdInput.pile.getSizeList());
 		TestCase.assertEquals(5, viewBottom.countUpdate);
 		TestCase.assertEquals(8, viewTop.countUpdate);
 		
 		for(int i=0; i<6; i++) {
 			kbdInput.actionCommande();
-			TestCase.assertEquals(6-(i+1), kbdInput.pile.size);
+			TestCase.assertEquals(6-(i+1), kbdInput.pile.getSizeList());
 			TestCase.assertEquals(5+(i+1), viewBottom.countUpdate);
 			TestCase.assertEquals(8+(i+1), viewTop.countUpdate);
 		}
