@@ -1,23 +1,23 @@
 package scenarios;
 
 import com.polytechtours.di5.Pile.input.StubKbdInputPile;
-import com.polytechtours.di5.Pile.view.StubViewBottomPile;
-import com.polytechtours.di5.Pile.view.StubViewTopPile;
+import com.polytechtours.di5.Pile.view.ViewBottomPile;
+import com.polytechtours.di5.Pile.view.ViewTopPile;
 
 import junit.framework.TestCase;
 
 public class TestScenario5 extends TestCase {
 
 	StubKbdInputPile kbdInput;
-	StubViewBottomPile viewBottom;
-	StubViewTopPile viewTop;
+	ViewBottomPile viewBottom;
+	ViewTopPile viewTop;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		kbdInput = new StubKbdInputPile();
 		
-		viewBottom = new StubViewBottomPile();
-		viewTop = new StubViewTopPile();
+		viewBottom = new ViewBottomPile();
+		viewTop = new ViewTopPile();
 		kbdInput.pile.addObserver(viewBottom);
 		kbdInput.pile.addObserver(viewTop);
 		
@@ -35,8 +35,8 @@ public class TestScenario5 extends TestCase {
 		kbdInput.action = "clear";
 		kbdInput.actionCommande();
 		TestCase.assertEquals(0, kbdInput.pile.getSizeList());
-		TestCase.assertEquals(6, viewBottom.countUpdate);
-		TestCase.assertEquals(7, viewTop.countUpdate);
+		TestCase.assertEquals(0, viewBottom.bottomElements.size());
+		TestCase.assertEquals(-1, viewTop.topElement);
 	}
 
 }

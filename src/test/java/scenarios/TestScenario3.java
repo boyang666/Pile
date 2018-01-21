@@ -1,23 +1,23 @@
 package scenarios;
 
 import com.polytechtours.di5.Pile.input.StubKbdInputPile;
-import com.polytechtours.di5.Pile.view.StubViewBottomPile;
-import com.polytechtours.di5.Pile.view.StubViewTopPile;
+import com.polytechtours.di5.Pile.view.ViewBottomPile;
+import com.polytechtours.di5.Pile.view.ViewTopPile;
 
 import junit.framework.TestCase;
 
 public class TestScenario3 extends TestCase {
 	
 	StubKbdInputPile kbdInput;
-	StubViewBottomPile viewBottom;
-	StubViewTopPile viewTop;
+	ViewBottomPile viewBottom;
+	ViewTopPile viewTop;
 
 	protected void setUp() throws Exception {
 		super.setUp();
 		kbdInput = new StubKbdInputPile();
 		
-		viewBottom = new StubViewBottomPile();
-		viewTop = new StubViewTopPile();
+		viewBottom = new ViewBottomPile();
+		viewTop = new ViewTopPile();
 		kbdInput.pile.addObserver(viewBottom);
 		kbdInput.pile.addObserver(viewTop);
 		
@@ -35,14 +35,14 @@ public class TestScenario3 extends TestCase {
 		kbdInput.action = "pop";
 		kbdInput.actionCommande();
 		TestCase.assertEquals(6, kbdInput.pile.getSizeList());
-		TestCase.assertEquals(5, viewBottom.countUpdate);
-		TestCase.assertEquals(8, viewTop.countUpdate);
+		TestCase.assertEquals(5, viewBottom.bottomElements.size());
+		TestCase.assertEquals(10, viewTop.topElement);
 		
-		for(int i=0; i<6; i++) {
+		for(int i=0; i<5; i++) {
 			kbdInput.actionCommande();
 			TestCase.assertEquals(6-(i+1), kbdInput.pile.getSizeList());
-			TestCase.assertEquals(5+(i+1), viewBottom.countUpdate);
-			TestCase.assertEquals(8+(i+1), viewTop.countUpdate);
+			TestCase.assertEquals(5-i, viewBottom.bottomElements.size());
+			TestCase.assertEquals(10, viewTop.topElement);
 		}
 	}
 
