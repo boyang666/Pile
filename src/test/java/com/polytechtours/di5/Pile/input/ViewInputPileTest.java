@@ -11,5 +11,9 @@ public class ViewInputPileTest extends TestCase {
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
+	
+	public void testMethod() {
+		
+	}
 
 }
