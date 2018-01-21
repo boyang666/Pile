@@ -4,14 +4,33 @@ import java.util.Observable;
 
 public class StubPile extends Observable{
 	
+	public int size = 0;
 	
-	@Override
-	public void setChanged() {
-		
+	public int pop() {
+		size--;
+		this.setChanged();
+		this.notifyObservers();
+		return 10;
 	}
 	
-	@Override
-	public void notifyObservers() {
-		
+	public void push(int num) {
+		size++;
+		this.setChanged();
+		this.notifyObservers();
 	}
+	
+	public void clear() {
+		size = 0;
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public int getSizeList() {
+		return size;
+	}
+	
+	public int getEntier(int index) {
+		return 10;
+	}
+	
 }

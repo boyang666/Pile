@@ -5,8 +5,10 @@ import java.util.Observer;
 
 public class StubViewTopPile implements Observer{
 
+	public int countUpdate = 0; 
+	
 	public void update(Observable o, Object arg) {
-		
+		countUpdate++;
 	}
 
 }
