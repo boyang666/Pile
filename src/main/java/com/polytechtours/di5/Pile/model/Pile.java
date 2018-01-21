@@ -42,6 +42,8 @@ public class Pile extends Observable{
 	 */
 	public void push(int element) {
 		elements.add(element);
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 	/**
@@ -49,7 +51,12 @@ public class Pile extends Observable{
 	 * @return the top of stack
 	 */
 	public int pop() {
-		return elements.get(elements.size()-1);
+		
+		int element = elements.get(elements.size()-1);
+		elements.remove(elements.size()-1);
+		this.setChanged();
+		this.notifyObservers();
+		return element;
 	}
 	
 	/**
@@ -57,5 +64,7 @@ public class Pile extends Observable{
 	 */
 	public void clear() {
 		elements.clear();
+		this.setChanged();
+		this.notifyObservers();
 	}
 }

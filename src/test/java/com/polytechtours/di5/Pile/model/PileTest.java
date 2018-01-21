@@ -35,6 +35,7 @@ public class PileTest extends TestCase {
 			pile.push(10);
 		
 		TestCase.assertEquals(10, pile.pop());
+		TestCase.assertEquals(5, pile.getSizeList());
 	}
 	
 	public void testClear() {
